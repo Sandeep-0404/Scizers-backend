@@ -29,4 +29,10 @@ router.post("/api", async (req, res) => {
   res.status(201).send(addRecord);
 });
 
+router.delete("/api/:id", async (req, res) => {
+  const id = req.params.id;
+  const deleteStudents = await DataSchema.findByIdAndDelete(id);
+  res.send(deleteStudents);
+});
+
 module.exports = router;
